@@ -1,12 +1,17 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
+import GameCard from "./GameCard";
 
 class GamesList extends React.Component {
-  state = {
-    games: [],
-    filteredByGenre: [],
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      games: [],
+      currentFilter: "Select all",
+    };
+  }
 
   componentDidMount() {
     //console.log("component did Mount!!");
@@ -28,73 +33,28 @@ class GamesList extends React.Component {
   }
 
   handleChange = (e) => {
-    this.state.games.map((game) => {
-      console.log(game.genre);
-    });
-    this.setState({ filteredByGenre: e.target.value });
+    // console.log("TARGET VALUE ", e.target.value);
+    this.setState({ currentFilter: e.target.value });
+    // console.log("STATE ", this.state.currentFilter);
   };
 
   render() {
-    // const { games } = this.state;
-    // let gamesList =
-    //   games.length > 0 &&
-    //   games.map((game, index) => {
-    //     return (
-    //       <option key={index} value={game.id}>
-    //         {game.genre}
-    //       </option>
-    //     );
-    //   });
+    const filteredGames =
+      this.state.currentFilter === "Select all"
+        ? this.state.games
+        : this.state.games.filter(
+            (game) => game.genre === this.state.currentFilter
+          );
 
+    console.log(filteredGames);
     return (
       <div>
-        {/* <select>{gamesList}</select> */}
-        <div>
-          <label>Choose a genre:</label>
-          <select onChange={this.handleChange}>
-            <option>Select all</option>
-            <option value="Action RPG">Action RPG</option>
-            <option>Battle Royale</option>
-            <option>Card Game</option>
-            <option>Fighting</option>
-            <option>Fantasy</option>
-            <option>Shooter</option>
-            <option>MMORPG</option>
-            <option>MMO</option>
-            <option>MOBA</option>
-            <option>Social</option>
-            <option>Strategy</option>
-            <option>Sports</option>
-          </select>
-        </div>
+        <Dropdown handleChange={this.handleChange} />
         <div className="container">
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-6">
-            {this.state.games.map((game, index) => {
-              return (
-                <div
-                  className="card"
-                  key={index}
-                  style={{
-                    margin: "1vw",
-                    justifyContent: "space-around",
-                    textAlign: "left",
-                  }}
-                >
-                  <img
-                    src={game.thumbnail}
-                    className="card-img-top"
-                    alt="games-list"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">
-                      <Link to={`/${game.id}`}>{game.title}</Link>
-                    </h5>
-                    <h6 className="card-text">Genre: {game.genre}</h6>
-                    <p className="card-text">{game.short_description}</p>
-                  </div>
-                </div>
-              );
-            })}
+            {filteredGames.map((game, index) => (
+              <GameCard game={game} key={index} />
+            ))}
           </div>
         </div>
       </div>

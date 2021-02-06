@@ -10,7 +10,6 @@ function App() {
       <Navbar />
       <Switch>
         <Route path="/" component={GamesList} />
-        {/* <Route path="/games/:id" component={GameDetails} /> */}
       </Switch>
     </div>
   );
