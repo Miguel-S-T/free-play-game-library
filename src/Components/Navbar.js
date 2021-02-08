@@ -3,13 +3,16 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav>
+    <nav
+      style={{
+        textAlign: "center",
+        margin: "0 0 0  ",
+        backgroundColor: "black",
+        padding: "20px",
+      }}
+    >
       <NavLink activeStyle={{ color: "red" }} exact to="/">
-        Home
-      </NavLink>
-
-      <NavLink activeStyle={{ color: "red" }} exact to="/all-games">
-        All Games
+        Free Games Library
       </NavLink>
     </nav>
   );

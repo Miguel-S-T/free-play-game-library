@@ -19,7 +19,7 @@ const GameCard = (props) => {
       />
       <div className="card-body">
         <h5 className="card-title">
-          <Link to={`/${props.game.id}`}>{props.game.title}</Link>
+          <Link to={`/game-details/${props.game.id}`}>{props.game.title}</Link>
         </h5>
         <h6 className="card-text">Genre: {props.game.genre}</h6>
         <p className="card-text">{props.game.short_description}</p>

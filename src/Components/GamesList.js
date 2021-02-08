@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import GameCard from "./GameCard";
+import Carousel from "./Carousel";
 
 class GamesList extends React.Component {
   constructor(props) {
@@ -46,9 +46,10 @@ class GamesList extends React.Component {
             (game) => game.genre === this.state.currentFilter
           );
 
-    console.log(filteredGames);
+    // console.log(filteredGames);
     return (
       <div>
+        <Carousel games={this.state.games} />
         <Dropdown handleChange={this.handleChange} />
         <div className="container">
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-6">
