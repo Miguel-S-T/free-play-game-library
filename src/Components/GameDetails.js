@@ -50,10 +50,10 @@ export default class GameDetails extends Component {
       <div className="details">
         <img src={this.state.thumbnail} alt="game" />
         <h2>{this.state.title}</h2>
-        <p>{this.state.genre}</p>
-        <p>{this.state.releaseDate}</p>
+        <p>genre: {this.state.genre}</p>
+        <p>release date: {this.state.releaseDate}</p>
         <p>{this.state.description}</p>
-        <p>{this.state.platform}</p>
+        <p>Platform: {this.state.platform}</p>
         <Link to={this.state.url}>
           <p>{this.state.url}</p>
         </Link>

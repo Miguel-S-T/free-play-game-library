@@ -17,7 +17,7 @@ function Dropdown(props) {
   ];
   return (
     <div style={{ textAlign: "center", padding: "20px 0 5px" }}>
-      <label>Choose a genre:</label>
+      <label style={{ margin: "0 10px" }}>Choose a genre:</label>
       <select onChange={props.handleChange}>
         {allGenres.map((genre, index) => (
           <option key={index} value={genre}>

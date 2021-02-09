@@ -6,9 +6,9 @@ function Navbar() {
     <nav
       style={{
         textAlign: "center",
-        margin: "0 0 0  ",
-        backgroundColor: "black",
-        padding: "20px",
+        margin: "0 0 0",
+        backgroundColor: "white",
+        padding: "16px",
       }}
     >
       <NavLink activeStyle={{ color: "red" }} exact to="/">

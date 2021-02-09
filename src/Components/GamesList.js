@@ -48,7 +48,7 @@ class GamesList extends React.Component {
 
     // console.log(filteredGames);
     return (
-      <div>
+      <div className="games-list">
         <Carousel games={this.state.games} />
         <Dropdown handleChange={this.handleChange} />
         <div className="container">

@@ -31,17 +31,17 @@ class Carousel extends React.Component {
   //   }
   // }
   render() {
-    let tenGamesImages = [...this.props.games.splice(21, 36)];
+    let tenGamesImages = [...this.props.games.splice(21, 30)];
     let carouselImage = tenGamesImages.map((game, index) => {
       return (
         <div key={index} className="carousel-item active">
           <img
             style={{
               width: "100%",
-              margin: "auto",
               height: "380px",
-              objectFit: "fill",
-              zoom: "200%",
+              objectFit: "contain",
+              backgroundColor: "black",
+              padding: "2px",
             }}
             src={game.thumbnail}
             className="d-block w-100"
